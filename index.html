@@ -3,40 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repository Link</title>
+    <title>Vendor Inventory</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        h1 {
-            color: #333;
-        }
-        a {
-            text-decoration: none;
-            color: #008cba;
-            font-weight: bold;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
+        .vendor-vladimir { background-color: #90EE90; }
+        .vendor-mayber { background-color: #87CEEB; }
+        .vendor-marlon { background-color: #FFB366; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to the Repository</h1>
-        <p>Visit the repository at: <a href="https://github.com/gaiborquichimbo-byte/hermar-" target="_blank">https://github.com/gaiborquichimbo-byte/hermar-</a></p>
+    <h1>Vendor Inventory</h1>
+    <select id="vendor-selector">
+        <option value="vladimir">Vladimir Cano</option>
+        <option value="mayber">Mayber Iñamagua</option>
+        <option value="marlon">Marlon Quichimbo</option>
+    </select>
+
+    <div id="delivery-lists">
+        <h2>Delivery Lists</h2>
+        <div class="vendor-vladimir">
+            <h3>Vladimir Cano</h3>
+            <ul>
+                <li>Product A - Delivery Date: 2026-05-01 - Observations: Lorem Ipsum</li>
+                <li>Product B - Delivery Date: 2026-05-02 - Observations: Dolor Sit Amet</li>
+            </ul>
+        </div>
+        <div class="vendor-mayber">
+            <h3>Mayber Iñamagua</h3>
+            <ul>
+                <li>Product C - Delivery Date: 2026-05-03 - Observations: Consectetur Adipiscing</li>
+                <li>Product D - Delivery Date: 2026-05-04 - Observations: Elit Sed Do</li>
+            </ul>
+        </div>
+        <div class="vendor-marlon">
+            <h3>Marlon Quichimbo</h3>
+            <ul>
+                <li>Product E - Delivery Date: 2026-05-05 - Observations: Ut Enim Ad</li>
+                <li>Product F - Delivery Date: 2026-05-06 - Observations: Minim Veni</li>
+            </ul>
+        </div>
     </div>
+
+    <script>
+        const vendorSelector = document.getElementById('vendor-selector');
+        vendorSelector.addEventListener('change', function() {
+            const selectedVendor = this.value;
+            const deliveries = document.querySelectorAll('#delivery-lists > div');
+            deliveries.forEach(delivery => {
+                delivery.style.display = delivery.classList.contains(`vendor-${selectedVendor}`) ? 'block' : 'none';
+            });
+        });
+    </script>
 </body>
 </html>
