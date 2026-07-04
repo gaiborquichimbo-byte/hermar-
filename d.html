@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hasta dónde te quiero</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:url("fondo.jpg") no-repeat center center fixed;
+    background-size:cover;
+    overflow-x:hidden;
+}
+
+.fondo{
+    width:100%;
+    min-height:100vh;
+    background:rgba(255,182,193,.45);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+.tarjeta{
+    width:900px;
+    max-width:95%;
+    background:rgba(255,255,255,.82);
+    backdrop-filter:blur(10px);
+    border-radius:25px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+}
+
+h1{
+    color:#c2185b;
+    font-size:45px;
+}
+
+h2{
+    color:#e91e63;
+    margin:15px 0;
+}
+
+img{
+    width:300px;
+    border-radius:20px;
+    margin:20px 0;
+    box-shadow:0 10px 20px rgba(0,0,0,.25);
+}
+
+p{
+    color:#444;
+    line-height:1.7;
+    text-align:justify;
+}
+
+audio{
+    width:100%;
+    margin-top:20px;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:#e91e63;
+    color:white;
+    cursor:pointer;
+    margin:10px;
+    font-size:16px;
+}
+
+button:hover{
+    background:#c2185b;
+}
+
+.corazones{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    pointer-events:none;
+}
+
+.corazon{
+    position:absolute;
+    color:#ff4081;
+    animation:subir 8s linear infinite;
+}
+
+@keyframes subir{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-120px);
+        opacity:0;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="corazones" id="corazones"></div>
+
+<div class="fondo">
+
+<div class="tarjeta">
+
+<h1>🌸 Hasta dónde te quiero 🌸</h1>
+
+<h2>La Rondalla de Saltillo</h2>
+
+<img src="rondalla.jpg" alt="La Rondalla">
+
+<p>
+
+<b>Hasta dónde te quiero</b>.
+Disfruta de la música MINIÑAAAAA PRECIOSAAAA JASJAKSJ MUAAAAAAAAAK BESHITOOSSS ALV 
+</p>
+
+<audio id="musica" controls>
+<source src="La_Rondalla_De_Saltillo_-_Hasta_Donde_Te_Quiero_(mp3.pm).mp3" type="audio/mpeg">
+Tu navegador no soporta audio.
+</audio>
+
+<br>
+
+<button onclick="musica.play()">▶ Reproducir</button>
+
+<button onclick="musica.pause()">⏸ Pausar</button>
+
+</div>
+
+</div>
+
+<script>
+
+const contenedor=document.getElementById("corazones");
+
+for(let i=0;i<35;i++){
+
+let c=document.createElement("div");
+
+c.className="corazon";
+
+c.innerHTML="❤";
+
+c.style.left=Math.random()*100+"%";
+
+c.style.fontSize=(20+Math.random()*25)+"px";
+
+c.style.animationDelay=Math.random()*8+"s";
+
+contenedor.appendChild(c);
+
+}
+
+</script>
+
+</body>
+</html>
+
+
+
+
+<div class="reproductor">
+
+    <h3>🎵 Escuchar la canción</h3>
+
+    <audio id="musica" controls>
+        <source src="La_Rondalla_De_Saltillo_-_Hasta_Donde_Te_Quiero_(mp3.pm).mp3" type="audio/mpeg">
+        Tu navegador no soporta audio.
+    </audio>
+
+    <br><br>
+
+    <button onclick="document.getElementById('musica').play()">
+        ▶ Reproducir
+    </button>
+
+    <button onclick="document.getElementById('musica').pause()">
+        ⏸ Pausar
+    </button>
+</div>
